@@ -21,7 +21,7 @@ class _SingupState extends State<Singup> {
         email: emailController.text,
         password: passwordController.text,
       );
-      
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Sucessful() ));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -33,9 +33,6 @@ class _SingupState extends State<Singup> {
     }
   }
 
-  change(){
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login() ));
-  }
 
   @override
   Widget build(BuildContext context) {
